@@ -1,8 +1,14 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
+let lookuplicenseBadge = {
+	"Apache 2.0": `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`,
+	MIT: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`,
+	"Boost 1.0": `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`,
+};
+
 let lookup = {
-	"Apache 2.0": `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+	"Apache 2.0": `
         Copyright [yyyy] [name of copyright owner]
 
         Licensed under the Apache License, Version 2.0 (the "License");
@@ -117,12 +123,14 @@ inquirer
 		} = args;
 		function getLicense(license) {
 			let result = lookup[license];
+			let licenseBadge = lookuplicenseBadge[license];
 			console.log(result);
-			return result;
+			return result, licenseBadge;
 		}
 		const licenseResponse = getLicense(license);
+		const licenseBadgeResponse = getLicense(license);
 
-		const readme = `# ${projectTitle} 
+		const readme = `# ${projectTitle} ${licenseBadgeResponse}
 
 ## despcrition
 ${description}
