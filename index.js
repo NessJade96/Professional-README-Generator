@@ -59,7 +59,7 @@ inquirer
 		},
 	])
 	.then(
-		(
+		({
 			projectTitle,
 			description,
 			installation,
@@ -68,35 +68,35 @@ inquirer
 			contributing,
 			tests,
 			email,
-			contact
-		) => {
-			// Use user feedback for... whatever!!
+			contact,
+		}) => {
 			const readme = `${projectTitle} 
 
-        #despcrition
-        ${description}
+## despcrition
+${description}
 
-        #table-of-Contents
-        [Description](#description)
+## table-of-Contents
+[Description](#description)
 
-        #installation
-        ${installation}
+## installation
+${installation}
         
-        #usage
-        ${usage}
+## usage
+${usage}
 
-        #license
-        ${license}
+## license
+${license}
 
-        #contributing
-        ${contributing}
+## contributing
+${contributing}
 
-        #tests
-        ${tests}
+## tests
+${tests}
         
-        #questions
-        ${email}
-        ${contact}`;
+## questions
+${contact}
+${email}
+`;
 
 			fs.writeFile("README.md", readme, (err) =>
 				err ? console.error(err) : console.log("Success!")
