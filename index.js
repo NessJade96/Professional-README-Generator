@@ -102,39 +102,25 @@ inquirer
 			name: "email",
 			message: "What is your email?",
 		},
-		{
-			type: "input",
-			name: "contact",
-			message: "What is the best way to reach you?",
-		},
 	])
-	.then((args) => {
-		const {
+	.then(
+		({
 			projectTitle,
 			description,
 			installation,
 			usage,
 			license,
+			github,
 			contributing,
 			tests,
 			email,
-			contact,
-			result,
-		} = args;
-		function getLicense(license) {
-			let result = lookup[license];
-			return result;
-		}
-		function getLicenseBadge(license) {
-			let licenseBadge = lookuplicenseBadge[license];
-			return licenseBadge;
-		}
-		const licenseResponse = getLicense(license);
-		const licenseBadgeResponse = getLicenseBadge(license);
+		}) => {
+			const licenseResponse = lookup[license];
+			const licenseBadgeResponse = lookuplicenseBadge[license];
 
-		const readme = `# ${projectTitle} ${licenseBadgeResponse}
+			const readme = `# ${projectTitle} ${licenseBadgeResponse}
 
-## despcrition
+## description
 ${description}
 
 ## table-of-Contents
@@ -162,14 +148,13 @@ ${contributing}
 ${tests}
         
 ## questions
-${email}
-${contact}
-`;
+Please checkout my [GitHub](https://github.com/?user=${github}), or send me an [email](mailto:${email})`;
 
-		fs.writeFile("README.md", readme, (err) =>
-			err ? console.error(err) : console.log("Success!")
-		);
-	})
+			fs.writeFile("README.md", readme, (err) =>
+				err ? console.error(err) : console.log("Success!")
+			);
+		}
+	)
 	.catch((error) => {
 		if (error.isTtyError) {
 		} else {
