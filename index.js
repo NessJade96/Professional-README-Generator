@@ -123,12 +123,14 @@ inquirer
 		} = args;
 		function getLicense(license) {
 			let result = lookup[license];
+			return result;
+		}
+		function getLicenseBadge(license) {
 			let licenseBadge = lookuplicenseBadge[license];
-			console.log(result);
-			return result, licenseBadge;
+			return licenseBadge;
 		}
 		const licenseResponse = getLicense(license);
-		const licenseBadgeResponse = getLicense(license);
+		const licenseBadgeResponse = getLicenseBadge(license);
 
 		const readme = `# ${projectTitle} ${licenseBadgeResponse}
 
