@@ -2,9 +2,10 @@
 
 ## description
 
-Dynamically create your professional README.md file for projects using Node.js and the [inquirer(https://www.npmjs.com/package/inquirer)] package. With the choice between 3 licenses, it makes creating your readme file a no brainer!
+Dynamically create your professional README.md file for projects using Node.js and the [inquirer(https://www.npmjs.com/package/inquirer)] package. With the choice between 3 licenses, it makes creating your readme file a no brainer! I even created this readme file the same way!
 
 Here is the [walk through video.](https://drive.google.com/file/d/1LJfmLMJMV5r72pMYCVK1-NGJAhI29SAr/view)
+[Github Repo link](https://github.com/NessJade96/Professional-README-Generator#questions)
 
 ## table-of-Contents
 
